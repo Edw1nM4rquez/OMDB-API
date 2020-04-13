@@ -99,16 +99,126 @@ readyState de XMLHttpRequest. 
 <img src="img/inter.png" id="imgE"/>  
 
 • Además, se deberá visualizar toda la información disponible (plot=full) de la base de datos de películas.
+
 - HTML
+       
+<div class="container" >
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body" id="detalles">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+       
+       
 - JavaScript
+
+function detalle(imdbID){
+    
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = function() {
+    
+      if (this.readyState == 4 && this.status == 200) {
+        
+        // recuperamos todos los valores para mostrar la informacion de cada pelicula
+        var myObj = JSON.parse(this.responseText);
+    
+        var titulo=myObj.Title;
+
+        var det='<h2>Detalles</h2>'+
+       ' <table style="width:100%">'+
+          '<tr><th>Titulo :</th><td>'+myObj.Title+'</td></tr>'+
+          '<tr><th>Año :</th><td>'+myObj.Year+'</td></tr>'+
+          '<tr><th>Nominal :</th> <td>'+myObj.Rated+'</td></tr>'+
+          '<tr><th>Liberado</th><td>'+myObj.Released+'</td></tr>'+
+          '<tr><th>Tiempo de ejecucion :</th><td>'+myObj.Runtime+'</td></tr>'+
+          '<tr><th>Genero :</th><td>'+myObj.Genre+'</td></tr>'+
+          '<tr><th>Director :</th><td>'+myObj.Director+'</td></tr>'+
+          '<tr><th>Escritor :</th><td>'+myObj.Writer+'</td></tr>'+
+          '<tr> <th>Actores :</th><td>'+myObj.Actors+'</td></tr>'+
+          '<tr><th>Trama :</th><td>'+myObj.Plot+'</td></tr>'+
+          '<tr><th>Idioma :</th><td>'+myObj.Language+'</td></tr>'+
+          '<tr><th>Pais :</th><td>'+myObj.Country+'</td></tr>'+
+          '<tr> <th>Premios :</th><td>'+myObj.Awards+'</td></tr>'+
+          '<tr><th>Metascore :</th><td>'+myObj.Metascore+'</td></tr>'+
+          '<tr><th>imdbRating :</th><td>'+myObj.imdbRating+'</td></tr>'+
+         ' <tr><th>imdbVotes :</th><td>'+myObj.imdbVotes+'</td></tr>'+
+         ' <tr><th>imdbID :</th><td>'+myObj.imdbID+'</td></tr>'+
+          '<tr><th>Tipo :</th><td>'+myObj.Type+'</td></tr>'+
+          '<tr><th>DVD :</th><td>'+myObj.DVD+'</td></tr>'+
+          '<tr><th>Taquilla :</th><td>'+myObj.BoxOffice+'</td></tr>'+
+         ' <tr><th>Produccion :</th><td>'+myObj.Production+'</td></tr>'+
+          '<tr><th>Sitio web :</th><td>'+myObj.Website+'</td></tr>'+
+          '<tr><th>Respuesta :</th><td>'+myObj.Response+'</td></tr></table>';       
+        console.log(titulo);
+        document.getElementById("exampleModalCenterTitle").innerHTML = titulo;
+        document.getElementById("detalles").innerHTML = det;
+
+      }
+    };
+
+    xmlhttp.open("GET", "http://www.omdbapi.com/?apikey=34d19580&i="+imdbID+'&plot=full', true);
+    xmlhttp.send();
+
+}
+
+
 - Interfaz
+
+
 
 • También, la aplicación deberá presentar un máximo de 5 películas por búsqueda. Es decir, si la búsqueda retorna más de 5 películas se deberá paginar los resultados.
 - HTML
+
+     <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center" id="paginas">
+          
+        </ul>
+      </nav>
+
+
 - JavaScript
+
+function paginacion(numeroP){
+   console.log(numeroP);
+    var paginas=' <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">Previous</a></li>';
+
+    //vamos creando las paginas dependiendo del numero de paginas en total a realizar
+    for (var i = 1; i  < numeroP+1; i++) {
+        paginas+='<li class="page-item" onclick="buscarPorTituloP('+i+')"><a class="page-link" href="#">'+i+'</a></li>';
+     }
+
+     paginas+='<li class="page-item"><a class="page-link" href="#">Next</a></li>';
+
+     return paginas;
+}
+       
 - Interfaz
+
+
 
 • Por último, la interfaz gráfica de aplicada debe ser intuitiva y sencilla aplicando conceptos de experiencia de usuario (justificar en el informe).
 
+
+RESULTADO(S) OBTENIDO(S):
+• Poder identificar las diferentes arquitecturas Web para el desarrollo de aplicaciones.CONCLUSIONES:
+* Podemos identificar las arquitecturas web que se presentan al momento de utilizar los servicios de la nube, como es en este caso OMDb.
+* Podemos tener un conocimiento más claro de cómo funcionan las APIs en internet.
+* Pudimos manipular los valores que almacena un campo o variable mediante JSON.RECOMENDACIONES:
+* Revisar contenidos sobre JSON, APIs para tener claro el objetivo de esta práctica.
+* Aplicar conceptos de interacción humano máquina para el desarrollo de la GUI
 
 
