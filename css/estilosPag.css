@@ -1,0 +1,37 @@
+.card-img-top {
+    width: 450px;
+    height: 300px;
+    object-fit: cover;
+}
+
+/*-------------------------------*/
+/*  los pie de pÃ¡ginaCSS*/
+
+
+#main-footer {
+	background: rgb(22, 81, 243);
+	color: white;
+	text-align: center;
+	padding: 20px;
+    margin-top: 900px;
+    position: relative;
+ 
+}
+	#main-footer p {
+		margin: 0;
+	}
+	
+	#main-footer a {
+		color: white;
+	}
+
+
+	#main-footer p {
+		margin: 0;
+	}
+	
+	#main-footer a {
+		color: white;
+    }
+    
+   
