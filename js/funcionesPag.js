@@ -1,4 +1,4 @@
-function buscarPorTituloPel(pagina){
+function buscarPorTitulo(pagina){
     var titulo=document.getElementById("titulo").value;
     var peliculas="";
     
@@ -20,19 +20,20 @@ function buscarPorTituloPel(pagina){
              '<button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" onclick="detalle('+"'"+element.imdbID+"'"+')">Informacion'+
             '</button></div></div></div>';  
         });
-
-         var totalPaginas=Math.round(myObj.totalResults/10);
-         var et=PaginacionPeliculas(totalPaginas);
-         console.log(et);
-         document.getElementById("peliculas").innerHTML = peliculas;
-         document.getElementById("paginas").innerHTML = et;
+       
+        var totalPaginas=Math.round(myObj.totalResults/10);
+        var et=paginacion(totalPaginas);
+        console.log(et);
+        document.getElementById("peliculas").innerHTML = peliculas;
+        document.getElementById("paginas").innerHTML = et;
       }
     };
     xmlhttp.open("GET", "http://www.omdbapi.com/?apikey=34d19580&s="+titulo+'&page='+pagina, true);
     xmlhttp.send();
 }
 
-function PaginacionPeliculas(numeroPaginas){
+
+function paginacion(numeroPaginas){
     console.log(numeroPaginas);
     var paginas=' <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">Previous</a></li>';
     for (var i = 1; i  < numeroPaginas+1; i++) {
