@@ -1,4 +1,4 @@
-function buscarPorTitulo(pagina){
+function buscarPorTituloP(pagina){
     var titulo=document.getElementById("titulo").value;
     var peliculas="";
     
@@ -33,22 +33,25 @@ function buscarPorTitulo(pagina){
 }
 
 
-function paginacion(numeroPaginas){
-    console.log(numeroPaginas);
+function paginacion(numeroP){
+    console.log(numeroP);
     var paginas=' <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">Previous</a></li>';
-    for (var i = 1; i  < numeroPaginas+1; i++) {
-        paginas+='<li class="page-item" onclick="buscarPorTitulo('+i+')"><a class="page-link" href="#">'+i+'</a></li>';
+    for (var i = 1; i  < numeroP+1; i++) {
+        paginas+='<li class="page-item" onclick="buscarPorTituloP('+i+')"><a class="page-link" href="#">'+i+'</a></li>';
      }
      paginas+='<li class="page-item"><a class="page-link" href="#">Next</a></li>';
 return paginas;
 }
 
+
 function detalle(imdbID){
+    
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         var myObj = JSON.parse(this.responseText);
         var titulo=myObj.Title;
+
         var det='<h2>Detalles</h2>'+
        ' <table style="width:100%">'+
           '<tr><th>Titulo :</th><td>'+myObj.Title+'</td></tr>'+
@@ -62,7 +65,7 @@ function detalle(imdbID){
           '<tr> <th>Actores :</th><td>'+myObj.Actors+'</td></tr>'+
           '<tr><th>Trama :</th><td>'+myObj.Plot+'</td></tr>'+
           '<tr><th>Idioma :</th><td>'+myObj.Language+'</td></tr>'+
-          '<tr><th>PaÃ­s :</th><td>'+myObj.Country+'</td></tr>'+
+          '<tr><th>Pais :</th><td>'+myObj.Country+'</td></tr>'+
           '<tr> <th>Premios :</th><td>'+myObj.Awards+'</td></tr>'+
           '<tr><th>Metascore :</th><td>'+myObj.Metascore+'</td></tr>'+
           '<tr><th>imdbRating :</th><td>'+myObj.imdbRating+'</td></tr>'+
