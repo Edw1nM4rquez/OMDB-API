@@ -1,5 +1,6 @@
 function buscarPorTituloP(pagina){
     var titulo=document.getElementById("titulo").value;
+   
     var peliculas="";
     
     // La propiedad XMLHttpRequest.onreadystatechange contiene el manejador del evento que es invocado cuando se dispara el 
@@ -10,7 +11,8 @@ function buscarPorTituloP(pagina){
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
     
-    // JSON Parse analiza el contenido de una cadena con formato JSON y extrae los valores que puede almacenar en un campo o  variable
+    // JSON Parse analiza el contenido de una cadena con formato JSON y 
+    //extrae los valores que puede almacenar en un campo o  variable
 
         var myObj = JSON.parse(this.responseText);
     
@@ -27,12 +29,14 @@ function buscarPorTituloP(pagina){
         //creamos una funcion para determinar el numero de paginas necesarias
         var et=paginacion(totalPaginas);
         console.log(et);
-
+        // 
         document.getElementById("peliculas").innerHTML = peliculas;
         document.getElementById("paginas").innerHTML = et;
       }
     };
+    //key OMDb
     xmlhttp.open("GET", "http://www.omdbapi.com/?apikey=34d19580&s="+titulo+'&page='+pagina, true);
+    
     xmlhttp.send();
 }
 
