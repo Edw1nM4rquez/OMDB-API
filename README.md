@@ -1,16 +1,21 @@
 DESARROLLO DE UNA APLICACIÓN WEB UTILIZANDO LA API DE LA BASE DE DATOS DE PELÍCULAS OMDB
 1. Identificar gráficamente la arquitectura y el patrón de diseño de la aplicación a desarrollar.
+
 <img src=”img/arq.jpg” />
 
 2. Generar una llave para consumir los servicios web de la API de OMDb.
+
 http://www.omdbapi.com/?apikey=34d19580&i
+
 
 3. Crear un repositorio en GitHub con el nombre “Practica00 – Consumo de APIs en la nube”.
 
 4. Desarrollar una aplicación con HTML + CSS + Javascript + Web Services para buscar películas y toda su información de la base de datos de OMDb.
 Requisitos:
 • La aplicación Web debe permitir buscar la información de las películas tanto por el nombre (listado) como por el código (id) de cada película.
+
 - HMTL
+
 <nav class="navbar navbar-expand-lg  bg-primary navbar-dark">
         <a class="navbar-brand" href="#">Peliculas</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,6 +46,7 @@ Requisitos:
       </section>
 
 - Función JavaScript
+
 function buscarPorTituloP(pagina){
     var titulo=document.getElementById("titulo").value;
    
