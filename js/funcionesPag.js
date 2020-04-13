@@ -42,3 +42,46 @@ function paginacion(numeroPaginas){
      paginas+='<li class="page-item"><a class="page-link" href="#">Next</a></li>';
 return paginas;
 }
+
+function detalle(imdbID){
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        var myObj = JSON.parse(this.responseText);
+        var titulo=myObj.Title;
+        var det='<h2>Detalles</h2>'+
+       ' <table style="width:100%">'+
+          '<tr><th>Titulo :</th><td>'+myObj.Title+'</td></tr>'+
+          '<tr><th>AÃ±o :</th><td>'+myObj.Year+'</td></tr>'+
+          '<tr><th>Nominal :</th> <td>'+myObj.Rated+'</td></tr>'+
+          '<tr><th>Liberado</th><td>'+myObj.Released+'</td></tr>'+
+          '<tr><th>Tiempo de ejecuciÃ³n :</th><td>'+myObj.Runtime+'</td></tr>'+
+          '<tr><th>GÃ©nero :</th><td>'+myObj.Genre+'</td></tr>'+
+          '<tr><th>Director :</th><td>'+myObj.Director+'</td></tr>'+
+          '<tr><th>Escritor :</th><td>'+myObj.Writer+'</td></tr>'+
+          '<tr> <th>Actores :</th><td>'+myObj.Actors+'</td></tr>'+
+          '<tr><th>Trama :</th><td>'+myObj.Plot+'</td></tr>'+
+          '<tr><th>Idioma :</th><td>'+myObj.Language+'</td></tr>'+
+          '<tr><th>PaÃ­s :</th><td>'+myObj.Country+'</td></tr>'+
+          '<tr> <th>Premios :</th><td>'+myObj.Awards+'</td></tr>'+
+          '<tr><th>Metascore :</th><td>'+myObj.Metascore+'</td></tr>'+
+          '<tr><th>imdbRating :</th><td>'+myObj.imdbRating+'</td></tr>'+
+         ' <tr><th>imdbVotes :</th><td>'+myObj.imdbVotes+'</td></tr>'+
+         ' <tr><th>imdbID :</th><td>'+myObj.imdbID+'</td></tr>'+
+          '<tr><th>Tipo :</th><td>'+myObj.Type+'</td></tr>'+
+          '<tr><th>DVD :</th><td>'+myObj.DVD+'</td></tr>'+
+          '<tr><th>Taquilla :</th><td>'+myObj.BoxOffice+'</td></tr>'+
+         ' <tr><th>Produccion :</th><td>'+myObj.Production+'</td></tr>'+
+          '<tr><th>Sitio web :</th><td>'+myObj.Website+'</td></tr>'+
+          '<tr><th>Respuesta :</th><td>'+myObj.Response+'</td></tr></table>';       
+        console.log(titulo);
+        document.getElementById("exampleModalCenterTitle").innerHTML = titulo;
+        document.getElementById("detalles").innerHTML = det;
+
+      }
+    };
+
+    xmlhttp.open("GET", "http://www.omdbapi.com/?apikey=34d19580&i="+imdbID+'&plot=full', true);
+    xmlhttp.send();
+
+}
