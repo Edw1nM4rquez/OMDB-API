@@ -39,21 +39,32 @@ function buscarPorTituloP(pagina){
 
 function paginacion(numeroP){
     console.log(numeroP);
+    
+    
     var paginas=' <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">Previous</a></li>';
+
+    //vamos creando las paginas dependiendo del numero de paginas en total a realizar
     for (var i = 1; i  < numeroP+1; i++) {
         paginas+='<li class="page-item" onclick="buscarPorTituloP('+i+')"><a class="page-link" href="#">'+i+'</a></li>';
      }
+
      paginas+='<li class="page-item"><a class="page-link" href="#">Next</a></li>';
-return paginas;
+
+     return paginas;
 }
 
 
 function detalle(imdbID){
     
     var xmlhttp = new XMLHttpRequest();
+
     xmlhttp.onreadystatechange = function() {
+    
       if (this.readyState == 4 && this.status == 200) {
+        
+        // recuperamos todos los valores para mostrar la informacion de cada pelicula
         var myObj = JSON.parse(this.responseText);
+    
         var titulo=myObj.Title;
 
         var det='<h2>Detalles</h2>'+
