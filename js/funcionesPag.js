@@ -21,13 +21,23 @@ function buscarPorTituloPel(pagina){
             '</button></div></div></div>';  
         });
 
-        //var totalPaginas=Math.round(myObj.totalResults/10);
-       // var et=PaginacionPeliculas(totalPaginas);
-      //  console.log(et);
-       // document.getElementById("peliculas").innerHTML = peliculas;
-       // document.getElementById("paginas").innerHTML = et;
+         var totalPaginas=Math.round(myObj.totalResults/10);
+         var et=PaginacionPeliculas(totalPaginas);
+         console.log(et);
+         document.getElementById("peliculas").innerHTML = peliculas;
+         document.getElementById("paginas").innerHTML = et;
       }
     };
     xmlhttp.open("GET", "http://www.omdbapi.com/?apikey=34d19580&s="+titulo+'&page='+pagina, true);
     xmlhttp.send();
+}
+
+function PaginacionPeliculas(numeroPaginas){
+    console.log(numeroPaginas);
+    var paginas=' <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">Previous</a></li>';
+    for (var i = 1; i  < numeroPaginas+1; i++) {
+        paginas+='<li class="page-item" onclick="buscarPorTitulo('+i+')"><a class="page-link" href="#">'+i+'</a></li>';
+     }
+     paginas+='<li class="page-item"><a class="page-link" href="#">Next</a></li>';
+return paginas;
 }
