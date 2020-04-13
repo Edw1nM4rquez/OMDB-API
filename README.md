@@ -1,7 +1,7 @@
 DESARROLLO DE UNA APLICACIÓN WEB UTILIZANDO LA API DE LA BASE DE DATOS DE PELÍCULAS OMDB
 1. Identificar gráficamente la arquitectura y el patrón de diseño de la aplicación a desarrollar.
 
-<img src=”img/arq.jpg” />
+<img src="img/arq.png" id="imgE"/>  
 
 2. Generar una llave para consumir los servicios web de la API de OMDb.
 
@@ -95,7 +95,7 @@ readyState de XMLHttpRequest. 
 
 - Interfaz
 
-<img src=”img/inter.png” />
+<img src="img/inter.png" id="imgE"/>  
 
 • Además, se deberá visualizar toda la información disponible (plot=full) de la base de datos de películas.
 - HTML
