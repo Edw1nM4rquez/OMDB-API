@@ -3,6 +3,7 @@ DESARROLLO DE UNA APLICACIÓN WEB UTILIZANDO LA API DE LA BASE DE DATOS DE PELÍCU
 
 <img src="img/arq.png" id="imgE"/>  
 
+
 2. Generar una llave para consumir los servicios web de la API de OMDb.
 
 http://www.omdbapi.com/?apikey=34d19580&i
