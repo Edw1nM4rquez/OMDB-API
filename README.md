@@ -214,10 +214,14 @@ function paginacion(numeroP){
 
 
 RESULTADO(S) OBTENIDO(S):
+
 • Poder identificar las diferentes arquitecturas Web para el desarrollo de aplicaciones.CONCLUSIONES:
+
 * Podemos identificar las arquitecturas web que se presentan al momento de utilizar los servicios de la nube, como es en este caso OMDb.
 * Podemos tener un conocimiento más claro de cómo funcionan las APIs en internet.
-* Pudimos manipular los valores que almacena un campo o variable mediante JSON.RECOMENDACIONES:
+* Pudimos manipular los valores que almacena un campo o variable mediante JSON.
+RECOMENDACIONES:
+
 * Revisar contenidos sobre JSON, APIs para tener claro el objetivo de esta práctica.
 * Aplicar conceptos de interacción humano máquina para el desarrollo de la GUI
 
