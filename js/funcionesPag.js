@@ -55,11 +55,11 @@ function detalle(imdbID){
         var det='<h2>Detalles</h2>'+
        ' <table style="width:100%">'+
           '<tr><th>Titulo :</th><td>'+myObj.Title+'</td></tr>'+
-          '<tr><th>AÃ±o :</th><td>'+myObj.Year+'</td></tr>'+
+          '<tr><th>Año :</th><td>'+myObj.Year+'</td></tr>'+
           '<tr><th>Nominal :</th> <td>'+myObj.Rated+'</td></tr>'+
           '<tr><th>Liberado</th><td>'+myObj.Released+'</td></tr>'+
-          '<tr><th>Tiempo de ejecuciÃ³n :</th><td>'+myObj.Runtime+'</td></tr>'+
-          '<tr><th>GÃ©nero :</th><td>'+myObj.Genre+'</td></tr>'+
+          '<tr><th>Tiempo de ejecucion :</th><td>'+myObj.Runtime+'</td></tr>'+
+          '<tr><th>Genero :</th><td>'+myObj.Genre+'</td></tr>'+
           '<tr><th>Director :</th><td>'+myObj.Director+'</td></tr>'+
           '<tr><th>Escritor :</th><td>'+myObj.Writer+'</td></tr>'+
           '<tr> <th>Actores :</th><td>'+myObj.Actors+'</td></tr>'+
