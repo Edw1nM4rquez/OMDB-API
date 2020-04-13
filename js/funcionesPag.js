@@ -21,9 +21,13 @@ function buscarPorTituloP(pagina){
             '</button></div></div></div>';  
         });
        
+        //dividimos el valor total de paginas para 10 y redondeamos le valor para poder realizar la paginacion 
+        //por cada 10 peliculas
         var totalPaginas=Math.round(myObj.totalResults/10);
+        //creamos una funcion para determinar el numero de paginas necesarias
         var et=paginacion(totalPaginas);
         console.log(et);
+
         document.getElementById("peliculas").innerHTML = peliculas;
         document.getElementById("paginas").innerHTML = et;
       }
